@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <%- include("../templates/header.ejs", {title : "آیفون استور", css : "homePage"}) %>
+</head>
+<body>
+  <%- include("../templates/sideBar.ejs") %>
+  <div id="check-container">
+    <div>
+      <h1>کد دستگاه را وارد کنید</h1>
+    </div>
+    
+    <div style="width: 100%;">
+        <div style="background-color: white; padding: 10px; border-radius: 15px;width: min-content; display: flex; justify-content: center; align-items: center;">
+            <input type="text" placeholder="کد دستگاه" id="input">
+    
+            <button style="width: 100px;margin-right: 10px;" id="btn">ثبت فاکتور</button>
+        </div>
+        <%- include("../templates/singlePhone.ejs", {phone:{code : "کد", IMEI1 : "سریال", color: "رنگ", capacity : "حافظه", phoneModel : "مدل"}, mode:2}) -%>
+        <% phones.forEach(phone => { %>
+            <%- include("../templates/singlePhone.ejs", {phone, mode:2}) -%>
+        <% }) %>
+    </div>
+  </div>
+
+  <script>
+    var input = document.getElementById("input")
+    var btn = document.getElementById("btn")
+    var jsPhones = "<%= phones.map(p => p.code) %>".split(",")
+
+    btn.addEventListener("click", () => {
+        if(jsPhones.includes(input.value)){
+            window.location.href = `/phones/${input.value}/sell`
+        }else{
+            alert("کد دستگاه نامعتبر و یا دستگاه ناموجود در فروشگاه است.")
+        }
+    })
+  </script>
+</body>
+</html>

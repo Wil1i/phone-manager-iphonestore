@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <%- include("./templates/header.ejs", {title : "آیفون استور", css : "homePage"}) %>
+</head>
+<body>
+  <%- include("./templates/sideBar.ejs") %>
+  <div id="check-container">
+    <div>
+      <h1>استعلام دستگاه</h1>
+    </div> 
+
+    <form method="post" action="/search" style="background-color: white; border-radius: 10px;display: flex; justify-content: center; align-items: center; flex-direction: column;">
+        <p style="margin-bottom: 10px;">کد و یا چهار رقم آخر سریال دستگاه را وارد کنید</p>
+
+        <input name="code" type="text" placeholder="جستجو" required>
+
+        <button type="submit">استعلام</button>
+    </form>
+    
+  </div>
+</body>
+</html>

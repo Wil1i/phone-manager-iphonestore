@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <%- include("../templates/header.ejs", {title : "آیفون استور", css : "homePage"}) %>
+</head>
+<body>
+  <style>
+    .info-card{
+      width: 70%; display: flex; align-items: center; justify-content: space-around;padding: 5px;background-color: rgb(232, 232, 232);border-radius: 10px;min-height: 35px;margin: 5px;
+    }
+
+    input{
+        padding: 1px 3px;
+        border-radius: 5px;
+    }
+  </style>
+  <%- include("../templates/sideBar.ejs") %>
+  <form method="post" action="/phones/<%=phone.code%>/edit" id="check-container">
+    <div style="display: flex; justify-content: space-between;">
+      <div style="display: flex; justify-content: center; align-items: center;">
+        <h1 id="header-mobile">کد موبایل <input value="<%= phone.code %>" name="code" style="width:70px; text-align: center;"> ( <input style="width: 70px;text-align: center;" value="<%= phone.code2 %>" name="code2"> )</h1>
+        <a href="/phones/<%=phone.code%>">
+          <button style="margin-right: 10px;" class="del-btn">لغو ویرایش</button>
+        </a>
+      </div>
+      <div id="status-mobile" style="color: var(--main); background-color: rgba(228, 246, 253, .7); padding: 2px 5px; border-radius: 7px; text-shadow: 2px 2px 3px skyblue;"><%= phone.status %></div>
+    </div>
+    
+    <div style="background-color: white; padding: 10px; border-radius: 10px;display: flex; justify-content: space-between; align-items: center;">
+
+      <div style="display: flex; flex-direction: column;width: 50%; align-items: center;">
+        <h2 style="margin-bottom: 10px;">مشخصات خریدار</h2>
+        <div class="info-card">
+          <b>نام و نام‌خانوادگی:</b>
+          <input value="<%=phone.customerName%>" name="customerName">
+        </div>
+
+        <div class="info-card">
+          <b>شماره تماس:</b>
+          <input value="<%=phone.customerNumber%>" name="customerNumber">
+        </div>
+
+        <div class="info-card">
+          <b>قیمت فروش:</b>
+          <input value="<%=phone.sellPrice%>" name="sellPrice">
+        </div>
+
+        <div class="info-card">
+          <b>تاریخ:</b>
+          <input value="<%=phone.sellDate%>" name="sellDate">
+        </div>
+
+        <div class="info-card">
+          <b>روش خرید:</b>
+          <select name="sellMode" style="padding: 2px; width: 150px;">
+            <option value="اقساطی" <%= phone.sellMode == "اقساطی" ? "selected" : '' %>>اقساطی</option>
+            <option value="نقدی" <%= phone.sellMode == "نقدی" ? "selected" : '' %>>نقدی</option>
+          </select>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column;width: 50%; align-items: center;">
+        <h2 style="margin-bottom: 10px;">مشخصات فروشنده</h2>
+
+        <div class="info-card">
+          <b>نام و نام‌خانوادگی:</b>
+          <input value="<%=phone.buyFrom%>" name="buyFrom">
+        </div>
+
+        <div class="info-card">
+          <b>شماره تماس:</b>
+          <input value="<%=phone.buyerNumber%>" name="buyerNumber">
+        </div>
+
+        <div class="info-card">
+          <b>قیمت خرید:</b>
+          <input value="<%=phone.buyPrice%>" name="buyPrice">
+        </div>
+        
+        <div class="info-card">
+          <b>تاریخ:</b>
+          <input value="<%=phone.buyDate%>" name="buyDate">
+        </div>
+
+        <div class="info-card">
+          <b>تحویلی:</b>
+          <p style="display: flex; justify-content: center; align-items: center; gap: 5px;">
+            <input type="checkbox" name="isOwnershipAvailable" <%= phone.isOwnershipAvailable == true ? 'checked' : '' %>>
+            انتقال
+            <input type="checkbox" name="isBoxAvailable" style="margin-right: 10px;" <%= phone.isBoxAvailable == true ? 'checked' : '' %>>
+            کارتن
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; background-color: white; border-radius: 15px; margin-top: 10px;">
+
+      <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
+        <div class="info-card">
+          <b>مدل دستگاه:</b>
+          <p>
+            <input value="<%=phone.phoneModel%>" name="phoneModel">
+          </p>
+        </div>
+  
+        <div class="info-card">
+          <b>حافظه:</b>
+          <p>
+            <input value="<%=phone.capacity%>" name="capacity">
+          </p>
+        </div>
+      </div>
+
+      <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
+        <div class="info-card">
+          <b>رنگ:</b>
+          <p>
+            <input value="<%=phone.color%>" name="color">
+          </p>
+        </div>
+  
+        <div class="info-card">
+          <b>پارت‌نامبر:</b>
+          <p>
+            <input value="<%=phone.partNumber%>" name="partNumber">
+          </p>
+        </div>
+      </div>
+
+      <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
+        <div class="info-card">
+          <b>سریال 1:</b>
+          <p>
+            <input value="<%=phone.IMEI1%>" name="IMEI1">
+          </p>
+        </div>
+  
+        <div class="info-card">
+          <b>سریال 2:</b>
+          <p>
+            <input value="<%=phone.IMEI2%>" name="IMEI2">
+          </p>
+        </div>
+      </div>
+
+      <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
+        <div class="info-card">
+          <b>سود دستگاه:</b>
+          <p>
+            غیر قابل بازدید در صفحه ویرایش
+          </p>
+        </div>
+  
+        <div class="info-card">
+          <b>نوع تسویه با مشتری:</b>
+          <p>
+            <input value="<%=phone.buyerSettlement%>" name="buyerSettlement">
+          </p>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <b style="min-width: 25%;">توضیحات تکمیلی:</b>
+        <p>
+          <textarea name="description" style="width: 350px;height: 250px;border-radius: 10px; border: 1px solid var(--main);padding: 10px;"><%=phone.description%></textarea>
+        </p>
+      </div>
+
+      <button type="submit" style="margin-bottom: 10px;">ثبت ویرایش</button>
+
+    </div>
+
+  </form>
+</body>
+</html>

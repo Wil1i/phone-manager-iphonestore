@@ -1,0 +1,37 @@
+const Phone = require("../../models/Phone")
+
+const get = async (req, res) => {
+    res.render("phones/buy", {
+        flash : req.flash(),
+        user : req.user,
+    })
+}
+
+const post = async (req, res) => {
+    await Phone.create({
+        buyFrom : req.body.buyFrom,
+        buyerNumber : req.body.buyerNumber,
+        buyPrice : req.body.buyPrice,
+        buyDate : req.body.buyDate,
+        isOwnershipAvailable : req.body.isOwnershipAvailable,
+        isBoxAvailable : req.body.isBoxAvailable,
+        phoneModel : req.body.phoneModel,
+        capacity : req.body.capacity,
+        color : req.body.color,
+        partNumber : req.body.partNumber,
+        IMEI1 : req.body.IMEI1,
+        IMEI2 : req.body.IMEI2,
+        buyerSettlement : req.body.buyerSettlement,
+        description : req.body.description,
+        status : "موجود در فروشگاه",
+        code : req.body.code,
+        code2 : req.body.code2
+    })
+
+    res.redirect("/phones")
+}
+
+module.exports = {
+    get,
+    post
+}

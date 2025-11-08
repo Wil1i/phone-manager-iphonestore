@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <%- include("./templates/header.ejs", {title : "آیفون استور", css : "homePage"}) %>
+</head>
+<body>
+  <%- include("./templates/sideBar.ejs") %>
+  <div id="check-container">
+    <div>
+      <h1><%= header || 'آخرین فروش‌ها' %></h1>
+    </div>
+    <% if (phones[0]) { %>
+      <% for(let i = 0; i < 10; i++){ %>
+        <% if(phones[i]){ %>
+          <%- include("./templates/singlePhone.ejs", {phone : phones[i], mode:1}) %>
+        <% }else{break;} %>
+      <% } %>
+    <% }else{ %>
+      <div class="err">فاکتوری یافت نشد.</div>
+    <% } %>
+  </div>
+</body>
+</html>

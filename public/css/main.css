@@ -1,0 +1,239 @@
+:root{
+  --main : rgb(65, 141, 223);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body{
+  background-color: #ddd;
+}
+
+input{
+  border: 1px solid var(--main);
+  padding: 10px 20px;
+  border-radius: 7px;
+}
+
+select{
+  border: 1px solid var(--main);
+  padding: 10px 20px;
+  width: 245px;
+  border-radius: 7px;
+}
+
+button {
+  background-color: var(--main);
+  color: white;
+  border: 1px solid var(--main);
+  padding: 7px 15px;
+  min-width: 70px;
+  border-radius: 7px;
+  transition: all .2s ease-in-out;
+  cursor: pointer;
+}
+
+button:hover{
+  background-color: white;
+  color: var(--main);
+}
+
+a{
+  color: black;
+  text-decoration: none;
+}
+
+#sideBar-container{
+  background-color: white;
+  border-radius: 10px;
+  width: 20%;
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  float: right;
+}
+
+#sideBar-container > h2{
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  color: var(--main);
+}
+
+#sideBar-container > a{
+  margin: 5px;
+  padding: 10px;
+  border-radius: 7px;
+  transition: background-color .2s ease-in-out;
+}
+
+#sideBar-container > a:hover{
+  background-color: #ededed;
+}
+
+#sideBar-container > a:last-child{
+  color: red;
+}
+
+#sideBar-container > a:last-child:hover{
+  background-color: rgb(249, 235, 235);
+}
+
+.err{
+  background-color: rgb(228, 210, 210);
+  border: 1px solid red;
+  color: red;
+  border-radius: 10px;
+  padding: 10px 20px;
+  width: 100%;
+}
+
+.del-btn{
+  background-color: rgb(226, 98, 98) !important;
+  border: 1px solid rgb(226, 98, 98) !important;
+}
+
+.del-btn:hover{
+  background-color: transparent !important;
+  color: rgb(226, 98, 98) !important;
+}
+
+.btn{
+  background-color: var(--main);
+  color: white;
+  border-radius: 7px;
+  padding: 5px 10px;
+  margin: 5px;
+  border: 1px solid var(--main);
+  transition: all .2s ease-in-out;
+}
+
+.btn:hover{
+  background-color: transparent;
+  color: var(--main);
+}
+
+.bluelink{
+  color: rgb(48, 127, 216);
+  text-decoration: underline;
+}
+
+@media only screen and (max-width: 750px) {
+  .log-mobile > div{
+    font-size: 10px;
+    padding: 3px !important;
+  }
+
+  .log-mobile > small{
+    font-size: 7px !important;
+    padding: 3px !important;
+  }
+
+  #sideBar-container{
+    display: none;
+    position: fixed;
+    top: 50px;
+    width: 50%;
+  }
+
+  #sideBar-icon{
+    display: block !important;
+    height: 30px !important;
+  }
+
+  #check-container{
+    max-width: 95% !important;
+    width: 95% !important;
+    margin-top: 0 !important;
+  }
+
+  .hide-mobile{
+    display: none;
+  }
+
+  .small-mobile{
+    font-size: 12px;
+  }
+
+  #owner-mobile{
+    overflow: hidden;
+    width: 40px;
+    height: 20px;
+    text-align: center;
+  }
+
+  .input-mobile{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .input-mobile > input{
+    width: 70% !important;
+    margin: 5px;
+  }
+  .input-mobile > select{
+    width: 70% !important;
+    margin: 5px;
+    margin-bottom: 0;
+  }
+
+  #s{
+    flex-direction: column;
+  }
+
+  #s > p{
+    margin: 5px;
+    text-align: center;
+  }
+
+  #s2{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+  }
+
+  #s2 > input{
+    width: 90% !important;
+    margin: 5px;
+  }
+
+  #header-mobile{
+    font-size: 19px;
+  }
+
+  #status-mobile{
+    width: 50%;
+    text-align: center;
+    padding: 10px !important;
+    border-radius: 20px !important;
+  }
+
+  .btn{
+    font-size: 12px;
+  }
+
+  .request-container{
+    padding: 5px !important;
+  }
+}
+
+#sideBar-icon{
+  display: none;
+}
+
+@media print {
+    .hp {
+      visibility: hidden;
+    }
+    *{
+      font-size: 14px !important;
+    }
+    .pr-w100{
+      width: 100% !important;
+    }
+}

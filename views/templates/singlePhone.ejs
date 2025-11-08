@@ -1,0 +1,18 @@
+<div class="request-container">
+    <p id="imei-mobile"><%= phone.code%></p>
+    <% if(phone.IMEI1 && phone.IMEI2){ %>
+        <p class="hide-mobile"><%=phone.IMEI1.slice(-4)%> | <%=phone.IMEI2.slice(-4)%></p>
+    <% }else{ %>
+        <p class="hide-mobile"><%=phone.IMEI1%></p>
+    <% } %>
+    <p><%=toPersian(phone.phoneModel)%></p>
+    <% if(mode==2){ %>
+    <p><%=toPersian(phone.color)%></p>
+    <p><%=toPersian(phone.capacity)%></p>
+    <% } %>
+    <% if(mode==1){ %>
+        <small class="hide-mobile"><%= toToday(phone.createdAt) %></small>
+        <small class="small-mobile" id="owner-mobile" style="<%= (phone.status.includes('ناموجود')) && 'border: 1px solid #f0adaf' %>; color: var(--main); background-color: rgb(228, 246, 253); padding: 2px 5px; border-radius: 7px; text-shadow: 2px 2px 3px skyblue;"><%=phone.status || 'ثبت نشده'%></small>
+        <a class="btn" style="margin: 0;" href="/phones/<%=phone.code%>">جزئیات</a>
+    <% } %>
+</div>
