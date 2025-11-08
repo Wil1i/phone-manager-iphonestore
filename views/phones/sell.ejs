@@ -14,8 +14,8 @@
         border-radius: 5px;
     }
   </style>
-  <%- include("../templates/sideBar.ejs") %>
-  <form method="post" action="/phones/<%=phone.code%>/edit" id="check-container">
+  <%- include("../templates/sideBar.ejs", {active : "sell"}) %>
+  <form method="post" action="/phones/<%=phone.code%>/sell" id="check-container">
     <div style="display: flex; justify-content: space-between;">
       <div style="display: flex; justify-content: center; align-items: center;">
         <h1 id="header-mobile">کد موبایل <input value="<%= phone.code %>" name="code" style="width:70px; text-align: center;"> ( <input style="width: 70px;text-align: center;" value="<%= phone.code2 %>" name="code2"> )</h1>

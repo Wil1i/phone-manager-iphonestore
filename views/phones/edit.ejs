@@ -14,7 +14,7 @@
         border-radius: 5px;
     }
   </style>
-  <%- include("../templates/sideBar.ejs") %>
+  <%- include("../templates/sideBar.ejs", {active : "phones"}) %>
   <form method="post" action="/phones/<%=phone.code%>/edit" id="check-container">
     <div style="display: flex; justify-content: space-between;">
       <div style="display: flex; justify-content: center; align-items: center;">

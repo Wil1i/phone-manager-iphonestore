@@ -14,7 +14,7 @@ const get = async (req, res) => {
 }
 
 const post = async (req, res) => {
-    const findPhone = await Phone.findByPk(req.params.id)
+    const findPhone = await Phone.findOne({where : {code : req.params.id}})
 
     if(!findPhone) {
         req.flash("danger", "درخواست مورد نظر یافت نشد.")
@@ -30,6 +30,9 @@ const post = async (req, res) => {
         sellMode : req.body.sellMode,
         description : req.body.description
     })
+
+    sms.send(config.smsCodes.sell, "09359426550", [findPhone.phoneModel, parseInt(req.body.sellPrice).toLocaleString() + " تومان", (parseInt(req.body.sellPrice) - parseInt(findPhone.buyPrice)).toLocaleString() + " تومان"])
+    sms.send(config.smsCodes.sell, "09309861451", [findPhone.phoneModel, parseInt(req.body.sellPrice).toLocaleString() + " تومان", (parseInt(req.body.sellPrice) - parseInt(findPhone.buyPrice)).toLocaleString() + " تومان"])
 
     res.redirect(`/phones/${req.params.id}`)
 }

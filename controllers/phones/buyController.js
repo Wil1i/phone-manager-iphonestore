@@ -1,4 +1,6 @@
 const Phone = require("../../models/Phone")
+const sms = require("../../utils/sms")
+const config = require("../../configs/config.json")
 
 const get = async (req, res) => {
     res.render("phones/buy", {
@@ -27,6 +29,9 @@ const post = async (req, res) => {
         code : req.body.code,
         code2 : req.body.code2
     })
+
+    sms.send(config.smsCodes.buy, "09359426550", [req.body.phoneModel, parseInt(req.body.buyPrice).toLocaleString() + " تومان"])
+    sms.send(config.smsCodes.buy, "09309861451", [req.body.phoneModel, parseInt(req.body.buyPrice).toLocaleString() + " تومان"])
 
     res.redirect("/phones")
 }

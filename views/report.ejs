@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <%- include("./templates/header.ejs", {title : "آیفون استور", css : "homePage"}) %>
+</head>
+<body>
+  <%- include("./templates/sideBar.ejs", {active : "report"}) %>
+  <div id="check-container">
+    <div>
+      <h1>گزارشات این ماه</h1>
+    </div>
+    
+    <div style="display: flex; justify-content: center; align-content: center;flex-wrap: wrap;">
+        <%- include("./templates/singleReport.ejs", {title : "تعداد فروش‌ها", description : filteredPhones.filter(p => p.status == "فروخته شد").length + " عدد"}) %>
+        <%- include("./templates/singleReport.ejs", {title : "تعداد خریدها", description : filteredPhones.length + " عدد"}) %>
+        <%- include("./templates/singleReport.ejs", {title : "گوشی‌های موجود", description : phones.filter(p => p.status == "موجود در فروشگاه").length + " عدد"}) %>
+        <%- include("./templates/singleReport.ejs", {title : "جمع خرید", description : allBuy.toLocaleString() + " تومان"}) %>
+        <%- include("./templates/singleReport.ejs", {title : "جمع فروش", description : allSell.toLocaleString() + " تومان"}) %>
+        <%- include("./templates/singleReport.ejs", {title : "سود", description : sood.toLocaleString() + " تومان"}) %>
+    </div>
+  </div>
+</body>
+</html>

@@ -11,14 +11,14 @@
 <div id="sideBar-container" class="hp">
   <h2>آیفون استور <small style="font-size: 10px;margin-right: -9px;">گوشی‌ها</small></h2>
 
-  <a href="/phones/sell">فروش گوشی</a>
-  <a href="/phones/buy">خرید گوشی</a>
-  <a href="/phones">لیست گوشی‌ها</a>
-  <a href="/search">استعلام گوشی</a>
-  <a href="/report">گزارش</a>
+  <a href="/phones/sell" style="<%= (active == 'sell') ? 'background-color: rgb(242, 242, 242);' : '' %>">فروش گوشی</a>
+  <a href="/phones/buy" style="<%= (active == 'buy') ? 'background-color: rgb(242, 242, 242);' : '' %>">خرید گوشی</a>
+  <a href="/phones" style="<%= (active == 'phones') ? 'background-color: rgb(242, 242, 242);' : '' %>">لیست گوشی‌ها</a>
+  <a href="/search" style="<%= (active == 'search') ? 'background-color: rgb(242, 242, 242);' : '' %>">استعلام گوشی</a>
+  <a href="/report" style="<%= (active == 'report') ? 'background-color: rgb(242, 242, 242);' : '' %>">گزارش</a>
   <% if(user.username == "shayan"){ %>
-    <a href="/logs">سوابق</a>
-    <a href="/users">کاربران</a>
+    <a href="/logs" style="<%= (active == 'logs') ? 'background-color: rgb(242, 242, 242);' : '' %>">سوابق</a>
+    <a href="/users" style="<%= (active == 'users') ? 'background-color: rgb(242, 242, 242);' : '' %>">کاربران</a>
   <% } %>
   <a href="/logout">خروج</a>
 </div>
