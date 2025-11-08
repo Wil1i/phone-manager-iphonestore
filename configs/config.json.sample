@@ -16,5 +16,7 @@
     },
 
     "smsCodes" : {
+        "buy" : BUY,
+        "sell" : SELL
     }
 }
