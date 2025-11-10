@@ -227,11 +227,20 @@ a{
 }
 
 @media print {
-    .hp {
-      visibility: hidden;
-    }
     *{
       font-size: 14px !important;
+      visibility: hidden;
+      position: fixed;
+    }
+    .pr{
+      visibility: visible;
+      position: unset;
+      width: 100% !important;
+    }
+    .pr *{
+      visibility: visible;
+      position: unset;
+      width: 100% !important;
     }
     .pr-w100{
       width: 100% !important;

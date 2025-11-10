@@ -10,14 +10,14 @@
     }
   </style>
   <%- include("../templates/sideBar.ejs", {active : "phones"}) %>
-  <div id="check-container" class="pr-w100">
+  <div id="check-container" class="pr-w100 pr">
     <div style="display: flex; justify-content: space-between;">
       <div style="display: flex; justify-content: center; align-items: center;">
         <h1 id="header-mobile">کد موبایل <%= phone.code %> ( <%= phone.code2 %> )</h1>
-        <a href="/phones/<%=phone.code%>/edit" class="hp">
+        <a href="/phones/<%=phone.code%>/edit">
           <button style="margin-right: 10px;">ویرایش</button>
         </a>
-        <button class="hp" style="margin-right: 10px;" onclick="window.print();return false;">پرینت</button>
+        <button style="margin-right: 10px;" onclick="window.print();return false;">پرینت</button>
       </div>
       <div id="status-mobile" style="color: var(--main); background-color: rgba(228, 246, 253, .7); padding: 2px 5px; border-radius: 7px; text-shadow: 2px 2px 3px skyblue;"><%= phone.status %></div>
     </div>
@@ -79,9 +79,11 @@
           <b>تحویلی:</b>
           <p>
             <%= (phone.isOwnershipAvailable) ? "مالکیت" : '' %>
+            <%= (phone.isPhoneNotRegistered) ? "بدون رجیستر" : "" %>
             <%= (phone.isOwnershipAvailable && phone.isBoxAvailable) ? "و" : ''%>
+            <%= (phone.isPhoneNotRegistered && phone.isBoxAvailable) ? " | " : "" %>
             <%= (phone.isBoxAvailable) ? "جعبه" : '' %>
-            <%= (!phone.isOwnershipAvailable && !phone.isBoxAvailable) ? 'هیچکدام' : '' %>
+            <%= (!phone.isOwnershipAvailable && !phone.isBoxAvailable && !phone.isPhoneNotRegistered) ? 'هیچکدام' : '' %>
           </p>
         </div>
       </div>

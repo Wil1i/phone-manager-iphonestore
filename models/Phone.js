@@ -98,6 +98,10 @@ const Request = db.define("phones", {
 
     buyerSettlement : {
         type : DataTypes.TEXT
+    },
+
+    isPhoneNotRegistered : {
+        type : DataTypes.BOOLEAN
     }
 })
 

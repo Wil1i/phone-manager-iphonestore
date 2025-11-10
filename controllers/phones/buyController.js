@@ -27,7 +27,8 @@ const post = async (req, res) => {
         description : req.body.description,
         status : "موجود در فروشگاه",
         code : req.body.code,
-        code2 : req.body.code2
+        code2 : req.body.code2,
+        isPhoneNotRegistered : req.body.isPhoneNotRegistered == "on" ? true : false
     })
 
     sms.send(config.smsCodes.buy, "09359426550", [req.body.phoneModel, parseInt(req.body.buyPrice).toLocaleString() + " تومان"])

@@ -34,7 +34,8 @@ const post = async (req, res) => {
         isBoxAvailable : req.body.isBoxAvailable == "on" ? true : false,
         isOwnershipAvailable : req.body.isOwnershipAvailable == "on" ? true : false,
         description : req.body.description,
-        buyerSettlement : req.body.buyerSettlement
+        buyerSettlement : req.body.buyerSettlement,
+        isPhoneNotRegistered : req.body.isPhoneNotRegistered == "on" ? true : false
     })
 
     res.redirect(`/phones/${req.body.code}`)

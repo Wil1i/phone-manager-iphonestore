@@ -6,8 +6,8 @@ const get = async (req, res) => {
     let month = new Date().toLocaleDateString('fa-IR-u-nu-latn').split("/")[1];
 
     const filteredPhones = phones.filter(phone => {
-        let sellMonth = phone.sellDate.split("/")[1]
-        let buyMonth = phone.buyDate.split("/")[1]
+        let sellMonth = phone.sellDate?.split("/")[1]
+        let buyMonth = phone.buyDate?.split("/")[1]
         return parseInt(sellMonth) == parseInt(month) || parseInt(buyMonth) == parseInt(month)
     })
 
