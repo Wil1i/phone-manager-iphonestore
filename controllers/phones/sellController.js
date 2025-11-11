@@ -23,12 +23,12 @@ const post = async (req, res) => {
 
     await findPhone.update({
         status : "فروخته شد",
-        customerName : req.body.customerName,
-        customerNumber : req.body.customerNumber,
-        sellPrice : req.body.sellPrice,
-        sellDate : req.body.sellDate,
-        sellMode : req.body.sellMode,
-        description : req.body.description
+        customerName : req.body?.customerName,
+        customerNumber : req.body?.customerNumber,
+        sellPrice : req.body?.sellPrice,
+        sellDate : req.body?.sellDate,
+        sellMode : req.body?.sellMode,
+        description : req.body?.description
     })
 
     sms.send(config.smsCodes.sell, "09359426550", [findPhone.phoneModel, parseInt(req.body.sellPrice).toLocaleString() + " تومان", (parseInt(req.body.sellPrice) - parseInt(findPhone.buyPrice)).toLocaleString() + " تومان"])
