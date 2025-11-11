@@ -16,7 +16,7 @@ const post = async (req, res) => {
         buyPrice : req.body?.buyPrice,
         buyDate : req.body?.buyDate,
         isOwnershipAvailable : req.body?.isOwnershipAvailable,
-        isBoxAvailable : req.body?.isBoxAvailable,
+        isBoxAvailable : req.body?.isBoxAvailable == "on" ? true : false,
         phoneModel : req.body?.phoneModel,
         capacity : req.body?.capacity,
         color : req.body?.color,
