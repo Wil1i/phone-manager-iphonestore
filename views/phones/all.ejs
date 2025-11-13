@@ -6,8 +6,9 @@
 <body>
   <%- include("../templates/sideBar.ejs", {active : 'phones'}) %>
   <div id="check-container">
-    <div>
+    <div style="display: flex; justify-content: space-between;">
       <h1>لیست گوشی‌ها</h1>
+      <div id="status-mobile" style="color: var(--main); background-color: rgba(228, 246, 253, .7); padding: 2px 5px; border-radius: 7px; text-shadow: 2px 2px 3px skyblue;">تمام دستگاه‌ها: <%= phones.length %> عدد</div>
     </div>
     
     <div>
