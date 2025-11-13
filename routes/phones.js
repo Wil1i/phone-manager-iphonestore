@@ -6,6 +6,9 @@ const buyController = require("../controllers/phones/buyController")
 Router.get("/buy", isUserLoggedIn, buyController.get)
 Router.post("/buy", isUserLoggedIn, buyController.post)
 
+const allSellsController = require("../controllers/phones/allSellsController")
+Router.get("/sells", isUserLoggedIn, allSellsController.get)
+
 const selectSellController = require("../controllers/phones/selectSellController")
 Router.get("/sell", isUserLoggedIn, selectSellController.get)
 
