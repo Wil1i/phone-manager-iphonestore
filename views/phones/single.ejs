@@ -14,15 +14,19 @@
     <div style="display: flex; justify-content: space-between;">
       <div style="display: flex; justify-content: center; align-items: center;">
         <h1 id="header-mobile">کد موبایل <%= phone.code %> ( <%= phone.code2 %> )</h1>
+        <% if(user){ %>
+
         <a href="/phones/<%=phone.code%>/edit">
           <button style="margin-right: 10px;">ویرایش</button>
         </a>
         <button style="margin-right: 10px;" onclick="window.print();return false;">پرینت</button>
+
+        <% } %>
       </div>
       <div id="status-mobile" style="color: var(--main); background-color: rgba(228, 246, 253, .7); padding: 2px 5px; border-radius: 7px; text-shadow: 2px 2px 3px skyblue;"><%= phone.status %></div>
     </div>
     
-    <div class="pr-w100" style=" background-color: white; padding: 10px; border-radius: 10px;display: flex; justify-content: space-between; align-items: center;">
+    <div class="responsive-container pr-w100" style=" background-color: white; padding: 10px; border-radius: 10px;display: flex; justify-content: space-between; align-items: center;">
 
       <div style="display: flex; flex-direction: column;width: 50%; align-items: center;<%= (phone.customerName) ? '' : 'opacity: 0.2' %>">
         <h2 style="margin-bottom: 10px;">مشخصات خریدار</h2>
@@ -92,7 +96,7 @@
 
     <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; background-color: white; border-radius: 15px; margin-top: 10px;">
 
-      <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
+      <div class="responsive-container" style="display: flex; justify-content: center; align-items: center; width: 100%;">
         <div class="info-card">
           <b>مدل دستگاه:</b>
           <p>
@@ -108,7 +112,7 @@
         </div>
       </div>
 
-      <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
+      <div class="responsive-container" style="display: flex; justify-content: center; align-items: center; width: 100%;">
         <div class="info-card">
           <b>رنگ:</b>
           <p>
@@ -124,7 +128,7 @@
         </div>
       </div>
 
-      <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
+      <div class="responsive-container" style="display: flex; justify-content: center; align-items: center; width: 100%;">
         <div class="info-card">
           <b>سریال 1:</b>
           <p>
@@ -140,7 +144,7 @@
         </div>
       </div>
 
-      <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
+      <div class="responsive-container" style="display: flex; justify-content: center; align-items: center; width: 100%;">
         <div class="info-card">
           <b>سود دستگاه:</b>
           <p>

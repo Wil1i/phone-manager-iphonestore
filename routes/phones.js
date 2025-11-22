@@ -24,7 +24,7 @@ Router.get("/:id/edit", isUserLoggedIn, editController.get)
 Router.post("/:id/edit", isUserLoggedIn, editController.post)
 
 const singleController = require("../controllers/phones/singleController")
-Router.get("/:id", isUserLoggedIn, singleController.get)
+Router.get("/:id", singleController.get)
 
 const allControllers = require("../controllers/phones/allController")
 Router.get("/", isUserLoggedIn, allControllers.get)

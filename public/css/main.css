@@ -208,7 +208,7 @@ a{
   }
 
   #status-mobile{
-    width: 50%;
+    /* width: 50%; */
     text-align: center;
     padding: 10px !important;
     border-radius: 20px !important;
@@ -220,6 +220,18 @@ a{
 
   .request-container{
     padding: 5px !important;
+  }
+
+  .responsive-container{
+    flex-direction: column;
+  }
+
+  .responsive-container > div{
+    width: 90% !important;
+  }
+
+  .info-card{
+    width: 100%;
   }
 }
 
