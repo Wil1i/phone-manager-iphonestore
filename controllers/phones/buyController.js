@@ -1,4 +1,5 @@
 const Phone = require("../../models/Phone")
+const Setting = require("../../models/Setting")
 const sms = require("../../utils/sms")
 const config = require("../../configs/config.json")
 
@@ -10,6 +11,9 @@ const get = async (req, res) => {
 }
 
 const post = async (req, res) => {
+    const adminNumber1 = await Setting.findOne({where : {name : "adminNumber1"}})
+    const adminNumber2 = await Setting.findOne({where : {name : "adminNumber2"}})
+
     await Phone.create({
         buyFrom : req.body?.buyFrom,
         buyerNumber : req.body?.buyerNumber,
@@ -31,8 +35,8 @@ const post = async (req, res) => {
         isPhoneNotRegistered : req.body?.isPhoneNotRegistered == "on" ? true : false
     })
 
-    sms.send(config.smsCodes.buy, "09359426550", [req.body.phoneModel, parseInt(req.body.buyPrice).toLocaleString() + " تومان"])
-    sms.send(config.smsCodes.buy, "09309861451", [req.body.phoneModel, parseInt(req.body.buyPrice).toLocaleString() + " تومان"])
+    sms.send(config.smsCodes.buy, adminNumber1.value, [req.body.phoneModel, parseInt(req.body.buyPrice).toLocaleString() + " تومان"])
+    sms.send(config.smsCodes.buy, adminNumber2.value, [req.body.phoneModel, parseInt(req.body.buyPrice).toLocaleString() + " تومان"])
 
     res.redirect("/phones")
 }

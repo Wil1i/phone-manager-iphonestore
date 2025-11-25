@@ -1,4 +1,5 @@
 const Phone = require("../../models/Phone")
+const Setting = require("../../models/Setting")
 const sms = require("../../utils/sms")
 const config = require("../../configs/config.json")
 const log = require("../../utils/log")
@@ -16,6 +17,9 @@ const get = async (req, res) => {
 const post = async (req, res) => {
     const findPhone = await Phone.findOne({where : {code : req.params.id}})
 
+    const adminNumber1 = await Setting.findOne({where : {name : "adminNumber1"}})
+    const adminNumber2 = await Setting.findOne({where : {name : "adminNumber2"}})
+
     if(!findPhone) {
         req.flash("danger", "درخواست مورد نظر یافت نشد.")
         return res.redirect("/phones")
@@ -31,8 +35,8 @@ const post = async (req, res) => {
         description : req.body?.description
     })
 
-    sms.send(config.smsCodes.sell, "09359426550", [findPhone.phoneModel, parseInt(req.body.sellPrice).toLocaleString() + " تومان", (parseInt(req.body.sellPrice) - parseInt(findPhone.buyPrice)).toLocaleString() + " تومان"])
-    sms.send(config.smsCodes.sell, "09309861451", [findPhone.phoneModel, parseInt(req.body.sellPrice).toLocaleString() + " تومان", (parseInt(req.body.sellPrice) - parseInt(findPhone.buyPrice)).toLocaleString() + " تومان"])
+    sms.send(config.smsCodes.sell, adminNumber1, [findPhone.phoneModel, parseInt(req.body.sellPrice).toLocaleString() + " تومان", (parseInt(req.body.sellPrice) - parseInt(findPhone.buyPrice)).toLocaleString() + " تومان"])
+    sms.send(config.smsCodes.sell, adminNumber2, [findPhone.phoneModel, parseInt(req.body.sellPrice).toLocaleString() + " تومان", (parseInt(req.body.sellPrice) - parseInt(findPhone.buyPrice)).toLocaleString() + " تومان"])
 
     res.redirect(`/phones/${req.params.id}`)
 }

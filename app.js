@@ -31,6 +31,9 @@ app.use("/phones", phonesRoutes)
 const usersRoutes = require("./routes/users")
 app.use("/users", usersRoutes)
 
+const settingsRoutes = require("./routes/settings")
+app.use("/settings", settingsRoutes)
+
 const indexRoutes = require("./routes/index")
 app.use("/", indexRoutes)
 

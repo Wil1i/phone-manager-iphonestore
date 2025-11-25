@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <%- include("../templates/header.ejs", {title : "آیفون استور", css : "homePage"}) %>
+</head>
+<body>
+  <%- include("../templates/sideBar.ejs", {active : "setting"}) %>
+  <form id="check-container" action="/settings" method="post">
+    <div>
+      <h1><%='تنظیمات' %></h1>
+    </div>
+
+    <div style="background-color: white; border-radius: 10px;padding: 5px; margin: 5px;display: flex; justify-content: space-between;align-items: center;">
+        <p>شماره مدیریت</p>
+
+        <div>
+            <input dir="ltr" name="adminNumber1" type="text" style="margin-left: 5px;" placeholder="شماره تماس اول" value="<%=settings.filter((s) => {return s.name == 'adminNumber1'})[0].value%>">
+            <input dir="ltr" name="adminNumber2" type="text" placeholder="شماره تماس دوم" value="<%=settings.filter((s) => {return s.name == 'adminNumber2'})[0].value%>">
+        </div>
+    </div>
+
+    <button type="submit" style="width: min-content;">ذخیره</button>
+  </form>
+</body>
+</html>
