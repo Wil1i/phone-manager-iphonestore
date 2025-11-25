@@ -19,6 +19,15 @@
         </div>
     </div>
 
+    <div style="background-color: white; border-radius: 10px;padding: 5px; margin: 5px;display: flex; justify-content: space-between;align-items: center;">
+        <p>نام شرکا</p>
+
+        <div>
+            <input name="partner1" type="text" style="margin-left: 5px;" placeholder="شریک اول" value="<%=settings.filter((s) => {return s.name == 'partner1'})[0].value%>">
+            <input name="partner2" type="text" placeholder="شریک دوم" value="<%=settings.filter((s) => {return s.name == 'partner2'})[0].value%>">
+        </div>
+    </div>
+
     <button type="submit" style="width: min-content;">ذخیره</button>
   </form>
 </body>

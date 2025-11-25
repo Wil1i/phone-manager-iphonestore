@@ -21,6 +21,16 @@ const post = async (req, res) => {
         adminNumber2.update({value : req.body.adminNumber2})
     }
 
+    if(req.body.partner1){
+        const partner1 = await Setting.findOne({where : {name : "partner1"}})
+        partner1.update({value : req.body.partner1})
+    }
+
+    if(req.body.partner2){
+        const partner2 = await Setting.findOne({where : {name : "partner2"}})
+        partner2.update({value : req.body.partner2})
+    }
+
     res.redirect("/settings")
 }
 
