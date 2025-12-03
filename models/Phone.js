@@ -100,6 +100,14 @@ const Request = db.define("phones", {
         type : DataTypes.TEXT
     },
 
+    battery : {
+        type : DataTypes.INTEGER
+    },
+
+    cycle : {
+        type : DataTypes.INTEGER
+    },
+
     isPhoneNotRegistered : {
         type : DataTypes.BOOLEAN
     }

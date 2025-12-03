@@ -147,6 +147,22 @@
 
       <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
         <div class="info-card">
+          <b>باتری:</b>
+          <p>
+            <%=phone.battery%>
+          </p>
+        </div>
+  
+        <div class="info-card">
+          <b>سایکل:</b>
+          <p>
+            <%=phone.cycle%>
+          </p>
+        </div>
+      </div>
+
+      <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
+        <div class="info-card">
           <b>سود دستگاه:</b>
           <p>
             <% if(phone.sellPrice && phone.buyPrice){ %>

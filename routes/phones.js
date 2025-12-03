@@ -16,9 +16,6 @@ const sellController = require("../controllers/phones/sellController")
 Router.get("/:id/sell", isUserLoggedIn, sellController.get)
 Router.post("/:id/sell", isUserLoggedIn, sellController.post)
 
-const returnController = require("../controllers/phones/returnController")
-Router.post("/:id/return", isUserLoggedIn, returnController.post)
-
 const editController = require("../controllers/phones/editController")
 Router.get("/:id/edit", isUserLoggedIn, editController.get)
 Router.post("/:id/edit", isUserLoggedIn, editController.post)

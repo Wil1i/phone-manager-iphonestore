@@ -32,6 +32,8 @@ const post = async (req, res) => {
         status : "موجود در فروشگاه",
         code : req.body?.code,
         code2 : req.body?.code2,
+        battery : req.body.battery,
+        cycle : req.body.cycle,
         isPhoneNotRegistered : req.body?.isPhoneNotRegistered == "on" ? true : false
     })
 
