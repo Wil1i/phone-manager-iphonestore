@@ -8,12 +8,16 @@ const Financial = db.define("financials", {
         autoIncrement : true
     },
 
-    user : {
-        type : DataTypes.TEXT
+    partnerId : {
+        type : DataTypes.INTEGER
     },
 
     amount : { 
         type : DataTypes.INTEGER
+    },
+
+    toUser : {
+        type : DataTypes.TEXT
     },
 
     description : {

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <%- include("../templates/header.ejs", {title : "آیفون استور", css : "homePage"}) %>
+</head>
+<body>
+  <%- include("../templates/sideBar.ejs", {active : "financial"}) %>
+  <div id="check-container">
+    <div>
+      <h1>ثبت پرداختی <%=partner%></h1>
+    </div>
+
+    <form action="/financials/new?partnerId=<%=partnerId%>" method="post" style="display: flex; flex-direction: column; justify-content: center; align-items: center;gap: 10px;">
+        <div class="input-mobile">
+            <input type="number" name="amount" placeholder="مبلغ">
+            <input type="text" name="toUser" placeholder="پرداختی به">
+            <input type="text" name="persianDate" placeholder="تاریخ">
+        </div>
+        <textarea name="description" placeholder="توضیحات" style="width: 350px;height: 250px;border-radius: 10px; border: 1px solid var(--main);padding: 10px;"></textarea>
+
+        <button type="submit">ثبت</button>
+    </form>
+  </div>
+</body>
+</html>

@@ -34,6 +34,9 @@ app.use("/users", usersRoutes)
 const settingsRoutes = require("./routes/settings")
 app.use("/settings", settingsRoutes)
 
+const financialsRoutes = require("./routes/financials")
+app.use("/financials", financialsRoutes)
+
 const indexRoutes = require("./routes/index")
 app.use("/", indexRoutes)
 
